@@ -1,6 +1,6 @@
 export default {
   mongoUrl:
     process.env.MONGO_URL ||
-    "mongodb://username:password@localhost:27017/clean-node-api?authSource=admin",
+    "mongodb+srv://iaanchagassalgado:vQtYLGxigdeZSewA@clean-node-api.pu3kibd.mongodb.net/?retryWrites=true&w=majority&appName=clean-node-api",
   port: process.env.PORT || 5050,
 };

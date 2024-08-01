@@ -3,10 +3,12 @@ import { Collection, MongoClient } from "mongodb";
 export const MongoHelper = {
   client: null as MongoClient | null,
   uri: null as string | null,
+  dbName: null as string | null,
 
   async connect(uri: string): Promise<void> {
     this.uri = uri;
     this.client = await MongoClient.connect(uri);
+    this.dbName = "clean-node-api";
   },
 
   async disconnect(): Promise<void> {
@@ -29,7 +31,7 @@ export const MongoHelper = {
       await this.connect(this.uri);
     }
 
-    return this.client.db().collection(name);
+    return this.client.db(this.dbName).collection(name);
   },
 
   map(collectionResult: any, insertedData: any): any {
